@@ -21,4 +21,19 @@ order by case value when value > 0 then value end asc,
 case when value=0 then value end;
 
 
+/* (по желанию) Из таблицы users необходимо извлечь пользователей, родившихся в августе и мае.
+ Месяцы заданы в виде списка английских названий ('may', 'august') Я так и не смогла разобраться в том, какой должен быть синтаксис для получения списка. */
+
+select * from users where DATE_FORMAT(birthday_at, '%m') = 05 or DATE_FORMAT(birthday_at, '%m') = 08;
+
+/*(по желанию) Из таблицы catalogs извлекаются записи при помощи запроса. SELECT * FROM catalogs WHERE id IN (5, 1, 2); 
+Отсортируйте записи в порядке, заданном в списке IN */
+
+select * from users WHERE id IN (5, 1, 2) order by FIELD(id, 5, 1, 2);
+
+
+
+  
+
+
   
