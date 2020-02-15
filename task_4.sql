@@ -12,11 +12,11 @@ order by firstname;
 use vk
 
 alter table profiles 
-add is_active varchar(10) not null
-default('true');
+add is_active boolean not null
+default(true);
 
-update profiles set is_active='false'
-where timestampdiff(year, birthday, now()) < 18;;
+update profiles set is_active=false
+where timestampdiff(year, birthday, now()) < 18;
 
 -- iv. Написать скрипт, удаляющий сообщения «из будущего» (дата позже сегодняшней)
 
