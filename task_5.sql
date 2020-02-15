@@ -32,6 +32,19 @@ select * from users where DATE_FORMAT(birthday_at, '%m') = 05 or DATE_FORMAT(bir
 select * from users WHERE id IN (5, 1, 2) order by FIELD(id, 5, 1, 2);
 
 
+-- Подсчитайте средний возраст пользователей в таблице users
+
+select round(avg(timestampdiff(YEAR, birthday_at, now())), 0) AS aver_age from users;
+
+/* Подсчитайте количество дней рождения, которые приходятся на каждый из дней недели. 
+Следует учесть, что необходимы дни недели текущего года, а не года рождения.*/
+
+select date_format(date(CONCAT_WS('-', YEAR(NOW()), month(birthday_at), day(birthday_at))), '%W') as birthday,
+count(*) as quantity
+from users group by birthday order by quantity;
+  
+
+
 
   
 
