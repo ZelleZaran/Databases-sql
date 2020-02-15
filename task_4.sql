@@ -16,7 +16,7 @@ add is_active varchar(10) not null
 default('true');
 
 update profiles set is_active='false'
-where birthday < '2002-01-01';
+where timestampdiff(year, birthday, now()) < 18;;
 
 -- iv. Написать скрипт, удаляющий сообщения «из будущего» (дата позже сегодняшней)
 
