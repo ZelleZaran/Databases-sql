@@ -43,6 +43,11 @@ select date_format(date(CONCAT_WS('-', YEAR(NOW()), month(birthday_at), day(birt
 count(*) as quantity
 from users group by birthday order by quantity;
   
+  
+/*   Подсчитать факториал какого-нибудь числового столбца. */
+
+
+select exp(sum(ln(id))) from users;
 
 
 
